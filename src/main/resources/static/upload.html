@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Info</title>
+</head>
+<body>
+<h1>Upload Info</h1>
+<form action="/upload" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="info">Info:</label>
+    <textarea id="info" name="info" required></textarea><br><br>
+
+    <label for="startTime">Start Time:</label>
+    <input type="text" id="startTime" name="startTime" required><br><br>
+
+    <label for="endTime">End Time:</label>
+    <input type="text" id="endTime" name="endTime" required><br><br>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required><br><br>
+
+    <label for="bannerImg">Banner Image:</label>
+    <input type="file" id="bannerImg" name="bannerImg" required><br><br>
+
+    <label for="posterImg">Poster Image:</label>
+    <input type="file" id="posterImg" name="posterImg" required><br><br>
+
+    <label for="publisher">Publisher:</label>
+    <input type="text" id="publisher" name="publisher" required><br><br>
+
+    <label for="orderIndex">Order Index:</label>
+    <input type="number" id="orderIndex" name="orderIndex" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    // JavaScript代码将日期输入格式化为"yyyy/MM/dd"
+    const startTimeInput = document.getElementById("startTime");
+    const endTimeInput = document.getElementById("endTime");
+
+    startTimeInput.addEventListener("change", function () {
+        const date = new Date(this.value);
+        const formattedDate = formatDate(date);
+        this.value = formattedDate;
+    });
+
+    endTimeInput.addEventListener("change", function () {
+        const date = new Date(this.value);
+        const formattedDate = formatDate(date);
+        this.value = formattedDate;
+    });
+
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}/${month}/${day}`;
+    }
+</script>
+
+</body>
+</html>
